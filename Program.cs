@@ -3,7 +3,6 @@ using System.IO;
 
 namespace SignalTesterApp
 {
-    public static class DecoderService
     {
         public static (string Input, string Output) Decode(string type, string raw1, string? raw2)
         {
@@ -57,6 +56,8 @@ namespace SignalTesterApp
     {
         public static void Main()
         {
+            var decoder = new DecoderService();
+
             try
             {
                 var lines = File.ReadAllLines("Data/sample_data.csv")[1..];
@@ -69,7 +70,8 @@ namespace SignalTesterApp
                         var raw1 = parts[1];
                         var raw2 = parts.Length > 2 ? parts[2] : null;
 
-                        var (input, output) = DecoderService.Decode(type, raw1, raw2);
+                        var (input, output) = decoder.Decode(type, raw1, raw2);
+
                         Console.WriteLine($"[{type}] {input} → {output}");
                     }
                     catch (Exception ex)
