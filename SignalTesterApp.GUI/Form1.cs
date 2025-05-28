@@ -16,7 +16,7 @@ namespace SignalTesterApp.GUI
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            LoadData(); // vagy amit szeretnél indításkor
+            LoadData();
         }
 
         private void LoadData()
