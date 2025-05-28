@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using Microsoft.Extensions.Configuration;
 using SignalTesterApp.Services;
 
 namespace SignalTesterApp
@@ -8,7 +9,20 @@ namespace SignalTesterApp
     {
         public static void Main()
         {
+            var config = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsetting.json", optional: false)
+                .Build();
+
+            string? connStr = config.GetConnectionString("MySql");
+
+            if (string.IsNullOrWhiteSpace(connStr))
+                throw new InvalidOperationException("Hiányzik a MySql kapcsolati string az appsettings.json fájlból!");
+
+            Console.WriteLine($"Kapcsolati string: {connStr}");
+
             var decoder = new DecoderService();
+            var dbService = new DatabaseService(connStr);
 
             try
             {
@@ -25,6 +39,8 @@ namespace SignalTesterApp
                         var (input, output) = decoder.Decode(type, raw1, raw2);
 
                         Console.WriteLine($"[{type}] {input} → {output}");
+
+                        dbService.SaveDecodedValue(type, raw1, raw2, output);
                     }
                     catch (Exception ex)
                     {

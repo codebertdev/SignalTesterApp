@@ -1,6 +1,5 @@
 **/bin/
 **/obj/
-**/bin/
-**/obj/
 **/TestResults/
 **/.vs/
+appsettings.json
