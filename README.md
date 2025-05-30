@@ -24,11 +24,11 @@ The decoding logic is based on well-known data formats:
 
 ## Architecture
 
-![Architecture Diagram](media/signaltester_architecture.png)
+![Architecture Diagram](Media/signaltester_architecture.png)
 *Data flow from CSV to decoder, database, and GUI display*
 
 
-[Open diagram directly if not working](media/signaltester_architecture.png)
+[Open diagram directly if not working](Media/signaltester_architecture.png)
 
 
 ##  Tech Used
@@ -53,4 +53,4 @@ The decoding logic is based on well-known data formats:
 
 This project helped deepen my understanding of core .NET topics, particularly file handling, interface usage, and unit testing.
 
-Since this is my first project on GitHub, I also learned a lot about using Git – including branching, committing, rebasing, and managing remote repositories – which greatly improved my confidence in version control and collaboration workflows.
+Since this is my first project on GitHub, I also learned a lot about using Git, including branching, committing, rebasing, and managing remote repositories, which greatly improved my confidence in version control and collaboration workflows.
