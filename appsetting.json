@@ -1,5 +1,0 @@
-{
-  "ConnectionStrings": {
-    "MySql": "server=localhost;user=root;password=yourpass;database=signaltester"
-  }
-}
